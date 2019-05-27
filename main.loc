@@ -1,0 +1,20 @@
+import "cbase"
+
+source "C" from "c_math.h" (
+    "asin" as sin
+  , "acos" as cos
+  , "atan" as tan
+)
+
+export sin
+export cos
+export tan
+
+sin :: Num -> Num
+sin C :: Double -> Double
+
+cos :: Num -> Num
+cos C :: Double -> Double
+
+tan :: Num -> Num
+tan C :: Double -> Double
