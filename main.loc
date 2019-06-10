@@ -1,20 +1,164 @@
 import "cbase";
 
 source "C" from "c_math.h" (
-    "asin" as sin
-  , "acos" as cos
-  , "atan" as tan
+    "acos"
+  , "asin"
+  , "atan"
+  , "atan2"
+  , "ceil"
+  , "cos"
+  , "cosh"
+  , "exp"
+  , "fabs"
+  , "floor"
+  , "fmod"
+  # , "frexp"
+  , "ldexp"
+  , "log"
+  , "log10"
+  # , "modf"
+  , "pow"
+  , "sin"
+  , "sinh"
+  , "sqrt"
+  , "tan"
+  , "tanh"
 );
 
-export sin;
+export acos;
+export asin;
+export atan;
+export atan2;
+export ceil;
 export cos;
+export cosh;
+export exp;
+export fabs;
+export floor;
+export fmod;
+# export frexp;
+export ldexp;
+export log;
+export log10;
+# export modf;
+export pow;
+export sin;
+export sinh;
+export sqrt;
 export tan;
+export tanh;
 
+# double sin(double x)
+# Returns the sine of a radian angle x.
 sin :: Num -> Num;
 sin C :: Double -> Double;
 
+# double cos(double x)
+# Returns the cosine of a radian angle x.
 cos :: Num -> Num;
 cos C :: Double -> Double;
 
+# double tan(double x)
+# Returns the cosine of a radian angle x.
 tan :: Num -> Num;
 tan C :: Double -> Double;
+
+# double acos(double x)
+# Returns the arc cosine of x in radians.
+acos :: Num -> Num where (x >= -1, x <= 1);
+acos C :: Double -> Double;
+
+# double asin(double x)
+# Returns the arc sine of x in radians.
+asin :: x:Num -> Num where (x >= -1, x <= 1);
+asin C :: Double -> Double;
+
+# double atan(double x)
+# Returns the arc tangent of x in radians.
+atan :: Num -> Num;
+atan C :: Double -> Double;
+
+# double atan2(double y, double x)
+# Returns the arc tangent in radians of y/x based on the signs of both values
+# to determine the correct quadrant.
+atan2 :: Num, Num -> Num;
+atan2 C :: Double, Double -> Double;
+
+# double cosh(double x)
+# Returns the hyperbolic cosine of x.
+cosh :: Num -> Num;
+cosh C :: Double -> Double;
+
+# double sinh(double x)
+# Returns the hyperbolic sine of x.
+sinh :: Num -> Num;
+sinh C :: Double -> Double;
+
+# double tanh(double x)
+# Returns the hyperbolic tangent of x.
+tanh :: Num -> Num;
+tanh C :: Double -> Double;
+
+# double exp(double x)
+# Returns the value of e raised to the xth power.
+exp :: Num -> Num;
+exp C :: Double -> Double;
+
+# NOTE: Not exported due to current lack of support for pointers
+# # double frexp(double x, int *exponent)
+# # The returned value is the mantissa and the integer pointed to by exponent is
+# # the exponent. The resultant value is x = mantissa * 2 ^ exponent.
+# frexp :: Num, Int -> Num;
+# frexp C :: Double, Int -> Double;
+
+# double ldexp(double x, int exponent)
+# Returns x multiplied by 2 raised to the power of exponent.
+ldexp :: Num, Int -> Num;
+ldexp C :: Double, Int -> Double;
+
+# double log(double x)
+# Returns the natural logarithm (base-e logarithm) of x.
+log :: Num -> Num;
+log C :: Double -> Double;
+
+# double log10(double x)
+# Returns the common logarithm (base-10 logarithm) of x.
+log10 :: Num -> Num;
+log10 C :: Double -> Double;
+
+# NOTE: Not exported due to current lack of support for pointers
+# # double modf(double x, double *integer)
+# # The returned value is the fraction component (part after the decimal), and
+# # sets integer to the integer component.
+# modf :: Num, Num -> Num;
+# modf C :: Double, Double -> Double;
+
+# double pow(double x, double y)
+# Returns x raised to the power of y.
+pow :: Num, Num -> Num;
+pow C :: Double, Double -> Double;
+
+# double sqrt(double x)
+# Returns the square root of x.
+sqrt :: Num -> Num;
+sqrt C :: Double -> Double;
+
+# double ceil(double x)
+# Returns the smallest integer value greater than or equal to x.
+ceil :: Num -> Num;
+ceil C :: Double -> Double;
+
+# double fabs(double x)
+# Returns the absolute value of x.
+fabs :: Num -> Num;
+fabs C :: Double -> Double;
+
+# double floor(double x)
+# Returns the largest integer value less than or equal to x.
+floor :: Num -> Num;
+floor C :: Double -> Double;
+
+# Returns the remainder of x divided by y.
+# C: double fmod(double x, double y)
+fmod :: Num, Num -> Num;
+fmod C :: Double, Double -> Double;
