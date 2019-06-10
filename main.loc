@@ -1,14 +1,29 @@
 import "cbase";
 
 source "C" from "c_math.h" (
-    "asin" as sin
-  , "acos" as cos
-  , "atan" as tan
+    "asin" as arcsin
+  , "acos" as arccos
+  , "atan" as arctan
+  , "sin"
+  , "cos"
+  , "tan"
 );
 
+export arcsin;
+export arccos;
+export arctan;
 export sin;
 export cos;
 export tan;
+
+arcsin :: x:Num -> Num where (x >= -1, x <= 1);
+arcsin C :: Double -> Double;
+
+arccos :: Num -> Num where (x >= -1, x <= 1);
+arccos C :: Double -> Double;
+
+arctan :: Num -> Num;
+arctan C :: Double -> Double;
 
 sin :: Num -> Num;
 sin C :: Double -> Double;
