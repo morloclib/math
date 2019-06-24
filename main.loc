@@ -51,114 +51,114 @@ export tanh;
 # double sin(double x)
 # Returns the sine of a radian angle x.
 sin :: Num -> Num;
-sin C :: Double -> Double;
+sin C :: "double" -> "double";
 
 # double cos(double x)
 # Returns the cosine of a radian angle x.
 cos :: Num -> Num;
-cos C :: Double -> Double;
+cos C :: "double" -> "double";
 
 # double tan(double x)
 # Returns the cosine of a radian angle x.
 tan :: Num -> Num;
-tan C :: Double -> Double;
+tan C :: "double" -> "double";
 
 # double acos(double x)
 # Returns the arc cosine of x in radians.
 acos :: Num -> Num where (x >= -1, x <= 1);
-acos C :: Double -> Double;
+acos C :: "double" -> "double";
 
 # double asin(double x)
 # Returns the arc sine of x in radians.
 asin :: x:Num -> Num where (x >= -1, x <= 1);
-asin C :: Double -> Double;
+asin C :: "double" -> "double";
 
 # double atan(double x)
 # Returns the arc tangent of x in radians.
 atan :: Num -> Num;
-atan C :: Double -> Double;
+atan C :: "double" -> "double";
 
 # double atan2(double y, double x)
 # Returns the arc tangent in radians of y/x based on the signs of both values
 # to determine the correct quadrant.
 atan2 :: Num, Num -> Num;
-atan2 C :: Double, Double -> Double;
+atan2 C :: "double", "double" -> "double";
 
 # double cosh(double x)
 # Returns the hyperbolic cosine of x.
 cosh :: Num -> Num;
-cosh C :: Double -> Double;
+cosh C :: "double" -> "double";
 
 # double sinh(double x)
 # Returns the hyperbolic sine of x.
 sinh :: Num -> Num;
-sinh C :: Double -> Double;
+sinh C :: "double" -> "double";
 
 # double tanh(double x)
 # Returns the hyperbolic tangent of x.
 tanh :: Num -> Num;
-tanh C :: Double -> Double;
+tanh C :: "double" -> "double";
 
 # double exp(double x)
 # Returns the value of e raised to the xth power.
 exp :: Num -> Num;
-exp C :: Double -> Double;
+exp C :: "double" -> "double";
 
 # NOTE: Not exported due to current lack of support for pointers
 # # double frexp(double x, int *exponent)
 # # The returned value is the mantissa and the integer pointed to by exponent is
 # # the exponent. The resultant value is x = mantissa * 2 ^ exponent.
 # frexp :: Num, Int -> Num;
-# frexp C :: Double, Int -> Double;
+# frexp C :: "double", Int -> "double";
 
 # double ldexp(double x, int exponent)
 # Returns x multiplied by 2 raised to the power of exponent.
 ldexp :: Num, Int -> Num;
-ldexp C :: Double, Int -> Double;
+ldexp C :: "double", "int" -> "double";
 
 # double log(double x)
 # Returns the natural logarithm (base-e logarithm) of x.
 log :: Num -> Num;
-log C :: Double -> Double;
+log C :: "double" -> "double";
 
 # double log10(double x)
 # Returns the common logarithm (base-10 logarithm) of x.
 log10 :: Num -> Num;
-log10 C :: Double -> Double;
+log10 C :: "double" -> "double";
 
 # NOTE: Not exported due to current lack of support for pointers
 # # double modf(double x, double *integer)
 # # The returned value is the fraction component (part after the decimal), and
 # # sets integer to the integer component.
 # modf :: Num, Num -> Num;
-# modf C :: Double, Double -> Double;
+# modf C :: "double", "double" -> "double";
 
 # double pow(double x, double y)
 # Returns x raised to the power of y.
 pow :: Num, Num -> Num;
-pow C :: Double, Double -> Double;
+pow C :: "double", "double" -> "double";
 
 # double sqrt(double x)
 # Returns the square root of x.
 sqrt :: Num -> Num;
-sqrt C :: Double -> Double;
+sqrt C :: "double" -> "double";
 
 # double ceil(double x)
 # Returns the smallest integer value greater than or equal to x.
 ceil :: Num -> Num;
-ceil C :: Double -> Double;
+ceil C :: "double" -> "double";
 
 # double fabs(double x)
 # Returns the absolute value of x.
 fabs :: Num -> Num;
-fabs C :: Double -> Double;
+fabs C :: "double" -> "double";
 
 # double floor(double x)
 # Returns the largest integer value less than or equal to x.
 floor :: Num -> Num;
-floor C :: Double -> Double;
+floor C :: "double" -> "double";
 
 # Returns the remainder of x divided by y.
 # C: double fmod(double x, double y)
 fmod :: Num, Num -> Num;
-fmod C :: Double, Double -> Double;
+fmod C :: "double", "double" -> "double";
