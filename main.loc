@@ -47,7 +47,7 @@ var Cpp :: "std::vector<double>" -> "double";
 
 export fibonocci;
 fibonocci :: Int -> [Num];
-fibonocci Cpp :: "size_t" -> "std::vector<int>";
+fibonocci Cpp :: "size_t" -> "std::vector<double>";
 
 # cubic root
 export cbrt;
