@@ -3,7 +3,12 @@ source "Cpp" from "cpp_math.hpp" (
   # C++11
     "cbrt"
   , "round"
-  # old Cpp functions
+  # custom functions
+  , "sum"
+  , "mean"
+  , "var"
+  , "fibonocci"
+  # C functions
   , "acos"
   , "asin"
   , "atan"
@@ -27,148 +32,150 @@ source "Cpp" from "cpp_math.hpp" (
   , "tan"
   , "tanh"
 );
-export cbrt;
-export round;
-export acos;
-export asin;
-export atan;
-export atan2;
-export ceil;
-export cos;
-export cosh;
-export exp;
-export fabs;
-export floor;
-export fmod;
-# export frexp;
-export ldexp;
-export log;
-export log10;
-# export modf;
-export pow;
-export sin;
-export sinh;
-export sqrt;
-export tan;
-export tanh;
 
+export sum;
+sum :: [Num] -> Num;
+sum Cpp :: "std::vector<double>" -> "double";
+
+export mean;
+mean :: [Num] -> Num;
+mean Cpp :: "std::vector<double>" -> "double";
+
+export var;
+var :: [Num] -> Num;
+var Cpp :: "std::vector<double>" -> "double"; 
+
+export fibonocci;
+fibonocci :: Int -> [Num];
+fibonocci Cpp :: "size_t" -> "std::vector<int>";
+
+# cubic root
+export cbrt;
 cbrt :: Num -> Num;
 cbrt Cpp :: "double" -> "double";
 
+# round to nearest integer
+export round;
 round :: Num -> Num;
 round Cpp :: "double" -> "double";
 
 # double sin(double x)
 # Returns the sine of a radian angle x.
+export sin;
 sin :: Num -> Num;
 sin Cpp :: "double" -> "double";
 
 # double cos(double x)
 # Returns the cosine of a radian angle x.
+export cos;
 cos :: Num -> Num;
 cos Cpp :: "double" -> "double";
 
 # double tan(double x)
 # Returns the cosine of a radian angle x.
+export tan;
 tan :: Num -> Num;
 tan Cpp :: "double" -> "double";
 
 # double acos(double x)
 # Returns the arc cosine of x in radians.
+export acos;
 acos :: Num -> Num where (x >= -1, x <= 1);
 acos Cpp :: "double" -> "double";
 
 # double asin(double x)
 # Returns the arc sine of x in radians.
+export asin;
 asin :: x:Num -> Num where (x >= -1, x <= 1);
 asin Cpp :: "double" -> "double";
 
 # double atan(double x)
 # Returns the arc tangent of x in radians.
+export atan;
 atan :: Num -> Num;
 atan Cpp :: "double" -> "double";
 
 # double atan2(double y, double x)
 # Returns the arc tangent in radians of y/x based on the signs of both values
 # to determine the correct quadrant.
+export atan2;
 atan2 :: Num, Num -> Num;
 atan2 Cpp :: "double", "double" -> "double";
 
 # double cosh(double x)
 # Returns the hyperbolic cosine of x.
+export cosh;
 cosh :: Num -> Num;
 cosh Cpp :: "double" -> "double";
 
 # double sinh(double x)
 # Returns the hyperbolic sine of x.
+export sinh;
 sinh :: Num -> Num;
 sinh Cpp :: "double" -> "double";
 
 # double tanh(double x)
 # Returns the hyperbolic tangent of x.
+export tanh;
 tanh :: Num -> Num;
 tanh Cpp :: "double" -> "double";
 
 # double exp(double x)
 # Returns the value of e raised to the xth power.
+export exp;
 exp :: Num -> Num;
 exp Cpp :: "double" -> "double";
 
-# NOTE: Not exported due to current lack of support for pointers
-# # double frexp(double x, int *exponent)
-# # The returned value is the mantissa and the integer pointed to by exponent is
-# # the exponent. The resultant value is x = mantissa * 2 ^ exponent.
-# frexp :: Num, Int -> Num;
-# frexp Cpp :: "double", Int -> "double";
-
 # double ldexp(double x, int exponent)
 # Returns x multiplied by 2 raised to the power of exponent.
+export ldexp;
 ldexp :: Num, Int -> Num;
 ldexp Cpp :: "double", "int" -> "double";
 
 # double log(double x)
 # Returns the natural logarithm (base-e logarithm) of x.
+export log;
 log :: Num -> Num;
 log Cpp :: "double" -> "double";
 
 # double log10(double x)
 # Returns the common logarithm (base-10 logarithm) of x.
+export log10;
 log10 :: Num -> Num;
 log10 Cpp :: "double" -> "double";
 
-# NOTE: Not exported due to current lack of support for pointers
-# # double modf(double x, double *integer)
-# # The returned value is the fraction component (part after the decimal), and
-# # sets integer to the integer component.
-# modf :: Num, Num -> Num;
-# modf Cpp :: "double", "double" -> "double";
-
 # double pow(double x, double y)
 # Returns x raised to the power of y.
+export pow;
 pow :: Num, Num -> Num;
 pow Cpp :: "double", "double" -> "double";
 
 # double sqrt(double x)
 # Returns the square root of x.
+export sqrt;
 sqrt :: Num -> Num;
 sqrt Cpp :: "double" -> "double";
 
 # double ceil(double x)
 # Returns the smallest integer value greater than or equal to x.
+export ceil;
 ceil :: Num -> Num;
 ceil Cpp :: "double" -> "double";
 
 # double fabs(double x)
 # Returns the absolute value of x.
+export fabs;
 fabs :: Num -> Num;
 fabs Cpp :: "double" -> "double";
 
 # double floor(double x)
 # Returns the largest integer value less than or equal to x.
+export floor;
 floor :: Num -> Num;
 floor Cpp :: "double" -> "double";
 
 # Returns the remainder of x divided by y.
 # C: double fmod(double x, double y)
+export fmod;
 fmod :: Num, Num -> Num;
 fmod Cpp :: "double", "double" -> "double";
