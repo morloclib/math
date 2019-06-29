@@ -1,6 +1,14 @@
 #include <math.h>
 #include <vector>
 
+
+// basic arithmetic
+#define add(x,y) x + y
+#define sub(x,y) x - y
+#define mul(x,y) x * y
+#define div(x,y) x / y
+#define mod(x,y) x % y
+
 double sum(std::vector<double>);
 double mean(std::vector<double>);
 double var(std::vector<double>);

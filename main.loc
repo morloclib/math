@@ -43,6 +43,20 @@ source "Cpp" from "cpp_math.hpp" (
   , "tanh"
 );
 
+# arithmetic operators - these are all 
+add :: (Num a) => a -> a;
+add Cpp :: "double" -> "double"
+
+sub :: (Num a) => a -> a;
+sub Cpp :: "double" -> "double"
+
+mul :: (Num a) => a -> a;
+mul Cpp :: "double" -> "double"
+
+mod :: (Num a) => a -> a;
+mod Cpp :: "double" -> "double"
+
+
 sum :: [Num] -> Num;
 sum Cpp :: "std::vector<double>" -> "double";
 
