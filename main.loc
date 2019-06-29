@@ -1,7 +1,17 @@
 import "cppbase";
+
+source "Cpp" from "cpp_gsl.hpp" (
+    "gsl_sf_bessel_J0" as "bessel"
+)
+
+bessel :: Num -> Num
+bessel Cpp :: "double" -> "double"
+
 source "Cpp" from "cpp_math.hpp" (
+  # arithmetic
+    "add"
   # C++11
-    "cbrt"
+  , "cbrt"
   , "round"
   # custom functions
   , "sum"

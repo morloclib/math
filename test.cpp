@@ -1,4 +1,5 @@
 #include "cpp_math.hpp"
+#include "gsl.h"
 #include <vector>
 #include <iostream>
 
@@ -11,5 +12,11 @@ int main(int argc, char * argv[]){
         std::cout << fs[i] << " ";
     }
     std::cout << std::endl;
+
+    std::cout << "gsl_sf_bessel_J0(5.0): " << gsl_sf_bessel_J0(5.0) << std::endl;
+
+    std::cout << "add(1+5): " << add(1,5) << std::endl;
+    std::cout << "add(1.1+5): " << add(1.1,5) << std::endl;
+
     return 0;
 }
