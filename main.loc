@@ -1,11 +1,11 @@
 import "cppbase";
 
 source "Cpp" from "cpp_gsl.hpp" (
-    "gsl_sf_bessel_J0" as "bessel"
-)
+    "gsl_sf_bessel_J0" as bessel
+);
 
-bessel :: Num -> Num
-bessel Cpp :: "double" -> "double"
+bessel :: Num -> Num;
+bessel Cpp :: "double" -> "double";
 
 source "Cpp" from "cpp_math.hpp" (
   # arithmetic
@@ -45,16 +45,16 @@ source "Cpp" from "cpp_math.hpp" (
 
 # arithmetic operators - these are all 
 add :: (Num a) => a -> a;
-add Cpp :: "double" -> "double"
+add Cpp :: "double" -> "double";
 
 sub :: (Num a) => a -> a;
-sub Cpp :: "double" -> "double"
+sub Cpp :: "double" -> "double";
 
 mul :: (Num a) => a -> a;
-mul Cpp :: "double" -> "double"
+mul Cpp :: "double" -> "double";
 
 mod :: (Num a) => a -> a;
-mod Cpp :: "double" -> "double"
+mod Cpp :: "double" -> "double";
 
 
 sum :: [Num] -> Num;
