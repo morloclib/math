@@ -1,5 +1,38 @@
 module math {
 
+export acos
+export add
+export asin
+export atan
+export atan2
+export bessel
+export cbrt
+export ceil
+export cos
+export cosh
+export div
+export exp
+export fabs
+export fibonacci
+export floor
+export fmod
+export ldexp
+export log
+export log10
+export mean
+export mod
+export mul
+export pow
+export round
+export sin
+export sinh
+export sqrt
+export sub
+export sum
+export tan
+export tanh
+export var
+
 import cppbase;
 
 source "Cpp" from "cpp_gsl.hpp" (
@@ -23,7 +56,7 @@ source "Cpp" from "cpp_math.hpp" (
   , "sum"
   , "mean"
   , "var"
-  , "fibonocci"
+  , "fibonacci"
   -- C functions
   , "acos"
   , "asin"
@@ -75,8 +108,8 @@ mean Cpp :: "std::vector<double>" -> "double";
 var :: [Num] -> Num;
 var Cpp :: "std::vector<double>" -> "double"; 
 
-fibonocci :: Int -> [Num];
-fibonocci Cpp :: "size_t" -> "std::vector<double>";
+fibonacci :: Int -> [Num];
+fibonacci Cpp :: "size_t" -> "std::vector<double>";
 
 -- cubic root
 cbrt :: Num -> Num;
