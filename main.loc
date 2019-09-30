@@ -1,4 +1,4 @@
-import "cppbase";
+import cppbase;
 
 source "Cpp" from "cpp_gsl.hpp" (
     "gsl_sf_bessel_J0" as bessel
@@ -8,17 +8,21 @@ bessel :: Num -> Num;
 bessel Cpp :: "double" -> "double";
 
 source "Cpp" from "cpp_math.hpp" (
-  # arithmetic
+  -- arithmetic
     "add"
-  # C++11
+  , "sub"
+  , "mul"
+  , "div"
+  , "mod"
+  -- C++11
   , "cbrt"
   , "round"
-  # custom functions
+  -- custom functions
   , "sum"
   , "mean"
   , "var"
   , "fibonocci"
-  # C functions
+  -- C functions
   , "acos"
   , "asin"
   , "atan"
@@ -30,11 +34,11 @@ source "Cpp" from "cpp_math.hpp" (
   , "fabs"
   , "floor"
   , "fmod"
-  # , "frexp"
+  -- , "frexp"
   , "ldexp"
   , "log"
   , "log10"
-  # , "modf"
+  -- , "modf"
   , "pow"
   , "sin"
   , "sinh"
@@ -43,7 +47,7 @@ source "Cpp" from "cpp_math.hpp" (
   , "tanh"
 );
 
-# arithmetic operators - these are all 
+-- arithmetic operators - these are all
 add :: (Num a) => a -> a;
 add Cpp :: "double" -> "double";
 
@@ -52,6 +56,9 @@ sub Cpp :: "double" -> "double";
 
 mul :: (Num a) => a -> a;
 mul Cpp :: "double" -> "double";
+
+div :: (Num a) => a -> a;
+div Cpp :: "double" -> "double";
 
 mod :: (Num a) => a -> a;
 mod Cpp :: "double" -> "double";
@@ -69,111 +76,111 @@ var Cpp :: "std::vector<double>" -> "double";
 fibonocci :: Int -> [Num];
 fibonocci Cpp :: "size_t" -> "std::vector<double>";
 
-# cubic root
+-- cubic root
 cbrt :: Num -> Num;
 cbrt Cpp :: "double" -> "double";
 
-# round to nearest integer
+-- round to nearest integer
 round :: Num -> Num;
 round Cpp :: "double" -> "double";
 
-# double sin(double x)
-# Returns the sine of a radian angle x.
+-- double sin(double x)
+-- Returns the sine of a radian angle x.
 sin :: Num -> Num;
 sin Cpp :: "double" -> "double";
 
-# double cos(double x)
-# Returns the cosine of a radian angle x.
+-- double cos(double x)
+-- Returns the cosine of a radian angle x.
 cos :: Num -> Num;
 cos Cpp :: "double" -> "double";
 
-# double tan(double x)
-# Returns the cosine of a radian angle x.
+-- double tan(double x)
+-- Returns the cosine of a radian angle x.
 tan :: Num -> Num;
 tan Cpp :: "double" -> "double";
 
-# double acos(double x)
-# Returns the arc cosine of x in radians.
-acos :: Num -> Num where (x >= -1, x <= 1);
+-- double acos(double x)
+-- Returns the arc cosine of x in radians.
+acos :: x:Num -> Num where { x >= -1; x <= 1 };
 acos Cpp :: "double" -> "double";
 
-# double asin(double x)
-# Returns the arc sine of x in radians.
-asin :: x:Num -> Num where (x >= -1, x <= 1);
+-- double asin(double x)
+-- Returns the arc sine of x in radians.
+asin :: x:Num -> Num where { x >= -1; x <= 1 };
 asin Cpp :: "double" -> "double";
 
-# double atan(double x)
-# Returns the arc tangent of x in radians.
+-- double atan(double x)
+-- Returns the arc tangent of x in radians.
 atan :: Num -> Num;
 atan Cpp :: "double" -> "double";
 
-# double atan2(double y, double x)
-# Returns the arc tangent in radians of y/x based on the signs of both values
-# to determine the correct quadrant.
-atan2 :: Num, Num -> Num;
-atan2 Cpp :: "double", "double" -> "double";
+-- double atan2(double y, double x)
+-- Returns the arc tangent in radians of y/x based on the signs of both values
+-- to determine the correct quadrant.
+atan2 :: Num -> Num -> Num;
+atan2 Cpp :: "double" -> "double" -> "double";
 
-# double cosh(double x)
-# Returns the hyperbolic cosine of x.
+-- double cosh(double x)
+-- Returns the hyperbolic cosine of x.
 cosh :: Num -> Num;
 cosh Cpp :: "double" -> "double";
 
-# double sinh(double x)
-# Returns the hyperbolic sine of x.
+-- double sinh(double x)
+-- Returns the hyperbolic sine of x.
 sinh :: Num -> Num;
 sinh Cpp :: "double" -> "double";
 
-# double tanh(double x)
-# Returns the hyperbolic tangent of x.
+-- double tanh(double x)
+-- Returns the hyperbolic tangent of x.
 tanh :: Num -> Num;
 tanh Cpp :: "double" -> "double";
 
-# double exp(double x)
-# Returns the value of e raised to the xth power.
+-- double exp(double x)
+-- Returns the value of e raised to the xth power.
 exp :: Num -> Num;
 exp Cpp :: "double" -> "double";
 
-# double ldexp(double x, int exponent)
-# Returns x multiplied by 2 raised to the power of exponent.
-ldexp :: Num, Int -> Num;
-ldexp Cpp :: "double", "int" -> "double";
+-- double ldexp(double x, int exponent)
+-- Returns x multiplied by 2 raised to the power of exponent.
+ldexp :: Num -> Int -> Num;
+ldexp Cpp :: "double" -> "int" -> "double";
 
-# double log(double x)
-# Returns the natural logarithm (base-e logarithm) of x.
+-- double log(double x)
+-- Returns the natural logarithm (base-e logarithm) of x.
 log :: Num -> Num;
 log Cpp :: "double" -> "double";
 
-# double log10(double x)
-# Returns the common logarithm (base-10 logarithm) of x.
+-- double log10(double x)
+-- Returns the common logarithm (base-10 logarithm) of x.
 log10 :: Num -> Num;
 log10 Cpp :: "double" -> "double";
 
-# double pow(double x, double y)
-# Returns x raised to the power of y.
-pow :: Num, Num -> Num;
-pow Cpp :: "double", "double" -> "double";
+-- double pow(double x, double y)
+-- Returns x raised to the power of y.
+pow :: Num -> Num -> Num;
+pow Cpp :: "double" -> "double" -> "double";
 
-# double sqrt(double x)
-# Returns the square root of x.
+-- double sqrt(double x)
+-- Returns the square root of x.
 sqrt :: Num -> Num;
 sqrt Cpp :: "double" -> "double";
 
-# double ceil(double x)
-# Returns the smallest integer value greater than or equal to x.
+-- double ceil(double x)
+-- Returns the smallest integer value greater than or equal to x.
 ceil :: Num -> Num;
 ceil Cpp :: "double" -> "double";
 
-# double fabs(double x)
-# Returns the absolute value of x.
+-- double fabs(double x)
+-- Returns the absolute value of x.
 fabs :: Num -> Num;
 fabs Cpp :: "double" -> "double";
 
-# double floor(double x)
-# Returns the largest integer value less than or equal to x.
+-- double floor(double x)
+-- Returns the largest integer value less than or equal to x.
 floor :: Num -> Num;
 floor Cpp :: "double" -> "double";
 
-# Returns the remainder of x divided by y.
-# C: double fmod(double x, double y)
-fmod :: Num, Num -> Num;
-fmod Cpp :: "double", "double" -> "double";
+-- Returns the remainder of x divided by y.
+-- C: double fmod(double x, double y)
+fmod :: Num -> Num -> Num;
+fmod Cpp :: "double" -> "double" -> "double";
