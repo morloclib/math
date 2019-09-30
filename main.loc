@@ -1,3 +1,5 @@
+module math {
+
 import cppbase;
 
 source "Cpp" from "cpp_gsl.hpp" (
@@ -184,3 +186,5 @@ floor Cpp :: "double" -> "double";
 -- C: double fmod(double x, double y)
 fmod :: Num -> Num -> Num;
 fmod Cpp :: "double" -> "double" -> "double";
+
+}
