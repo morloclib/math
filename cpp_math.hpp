@@ -1,3 +1,6 @@
+#ifndef __CPP_MATH_HPP__
+#define __CPP_MATH_HPP__
+
 #include <math.h>
 #include <vector>
 
@@ -12,7 +15,7 @@
 double sum(std::vector<double>);
 double mean(std::vector<double>);
 double var(std::vector<double>);
-std::vector<double> fibonocci(size_t);
+std::vector<double> fibonacci(size_t);
 
 double sum(std::vector<double> xs){
     double x = 0; 
@@ -35,7 +38,7 @@ double var(std::vector<double> xs){
     return(diff / (xs.size() - 1));
 }
 
-std::vector<double> fibonocci(size_t n){
+std::vector<double> fibonacci(size_t n){
     std::vector<double> xs;
     if(n <= 0){
        return xs; 
@@ -51,3 +54,5 @@ std::vector<double> fibonocci(size_t n){
     }
     return(xs);
 }
+
+#endif
