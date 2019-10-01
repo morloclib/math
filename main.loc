@@ -35,7 +35,7 @@ export var
 
 import cppbase;
 
-source "Cpp" from "cpp_gsl.hpp" (
+source "Cpp" from "gsl.h" (
     "gsl_sf_bessel_J0" as bessel
 );
 
@@ -83,19 +83,19 @@ source "Cpp" from "cpp_math.hpp" (
 );
 
 -- arithmetic operators - these are all
-add :: (Num a) => a -> a;
+add :: (Num a) => forall a . a -> a;
 add Cpp :: "double" -> "double";
 
-sub :: (Num a) => a -> a;
+sub :: (Num a) => forall a . a -> a;
 sub Cpp :: "double" -> "double";
 
-mul :: (Num a) => a -> a;
+mul :: (Num a) => forall a . a -> a;
 mul Cpp :: "double" -> "double";
 
-div :: (Num a) => a -> a;
+div :: (Num a) => forall a . a -> a;
 div Cpp :: "double" -> "double";
 
-mod :: (Num a) => a -> a;
+mod :: (Num a) => forall a . a -> a;
 mod Cpp :: "double" -> "double";
 
 
