@@ -35,14 +35,14 @@ export var
 
 import cppbase;
 
-source "Cpp" from "gsl.h" (
+source Cpp from "gsl.h" (
     "gsl_sf_bessel_J0" as bessel
 );
 
 bessel :: Num -> Num;
 bessel Cpp :: "double" -> "double";
 
-source "Cpp" from "cpp_math.hpp" (
+source Cpp from "cpp_math.hpp" (
   -- arithmetic
     "add"
   , "sub"
