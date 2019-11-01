@@ -99,17 +99,17 @@ mod :: (Num a) => forall a . a -> a;
 mod Cpp :: "double" -> "double";
 
 
-sum :: [Num] -> Num;
-sum Cpp :: "std::vector<double>" -> "double";
+sum :: (Num a) => forall a . [a] -> a;
+sum Cpp :: forall a . "std::vector<$1>" double -> "double";
 
-mean :: [Num] -> Num;
-mean Cpp :: "std::vector<double>" -> "double";
+mean :: (Num a) => forall a . [a] -> a;
+mean Cpp :: forall a . "std::vector<$1>" a -> a;
 
-var :: [Num] -> Num;
-var Cpp :: "std::vector<double>" -> "double"; 
+var :: (Num a) => forall a . [a] -> a;
+var Cpp :: forall a . "std::vector<$1>" a -> a;
 
-fibonacci :: Int -> [Num];
-fibonacci Cpp :: "size_t" -> "std::vector<double>";
+fibonacci :: Num -> [Num];
+fibonacci Cpp :: "size_t" -> "std::vector<$1>" double;
 
 -- cubic root
 cbrt :: Num -> Num;

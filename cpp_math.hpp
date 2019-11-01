@@ -12,12 +12,10 @@
 #define div(x,y) x / y
 #define mod(x,y) x % y
 
-double sum(std::vector<double>);
-double mean(std::vector<double>);
-double var(std::vector<double>);
 std::vector<double> fibonacci(size_t);
 
-double sum(std::vector<double> xs){
+template <class A>
+A sum(std::vector<A> xs){
     double x = 0; 
     for(size_t i = 0; i < xs.size(); i++){
         x += xs[i];
@@ -25,13 +23,15 @@ double sum(std::vector<double> xs){
     return(x);
 }
 
-double mean(std::vector<double> xs){
+template <class A>
+A mean(std::vector<A> xs){
     return(sum(xs) / xs.size());
 }
 
-double var(std::vector<double> xs){
-    double x_bar = mean(xs);
-    double diff = 0; 
+template <class A>
+A var(std::vector<A> xs){
+    A x_bar = mean(xs);
+    A diff = 0; 
     for(size_t i = 0; i < xs.size(); i++){
         diff += pow(x_bar - xs[i], 2);
     }

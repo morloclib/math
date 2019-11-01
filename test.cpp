@@ -5,9 +5,14 @@
 
 int main(int argc, char * argv[]){
     std::vector<double> xs = {1.1, 1.2, 1.3}; 
+    std::vector<int> ys = {1, 2, 3}; 
     std::cout << sum(xs) << std::endl;
+    std::cout << sum(ys) << std::endl;
     std::cout << mean(xs) << std::endl;
-    std::vector<double> fs = fibonocci(20);
+    std::cout << mean(ys) << std::endl;
+    std::cout << var(xs) << std::endl;
+    std::cout << var(ys) << std::endl;
+    std::vector<double> fs = fibonacci(20);
     for(size_t i = 0; i < fs.size(); i++){
         std::cout << fs[i] << " ";
     }
