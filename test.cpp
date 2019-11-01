@@ -12,7 +12,27 @@ int main(int argc, char * argv[]){
     std::cout << mean(ys) << std::endl;
     std::cout << var(xs) << std::endl;
     std::cout << var(ys) << std::endl;
-    std::vector<double> fs = fibonacci(20);
+    std::vector<double> fs = fibonacci(1);
+    for(size_t i = 0; i < fs.size(); i++){
+        std::cout << fs[i] << " ";
+    }
+    std::cout << std::endl;
+    fs = fibonacci(2);
+    for(size_t i = 0; i < fs.size(); i++){
+        std::cout << fs[i] << " ";
+    }
+    std::cout << std::endl;
+    fs = fibonacci(3);
+    for(size_t i = 0; i < fs.size(); i++){
+        std::cout << fs[i] << " ";
+    }
+    std::cout << std::endl;
+    fs = fibonacci(4);
+    for(size_t i = 0; i < fs.size(); i++){
+        std::cout << fs[i] << " ";
+    }
+    std::cout << std::endl;
+    fs = fibonacci(20);
     for(size_t i = 0; i < fs.size(); i++){
         std::cout << fs[i] << " ";
     }

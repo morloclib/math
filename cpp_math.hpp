@@ -49,7 +49,7 @@ std::vector<double> fibonacci(size_t n){
     if(n > 1){
         xs.push_back(1);
     }
-    while(xs.size() <= n){
+    while(xs.size() <= (n-1)){
         xs.push_back(xs[xs.size()-1] + xs[xs.size()-2]);
     }
     return(xs);
