@@ -83,24 +83,24 @@ source Cpp from "cpp_math.hpp" (
 );
 
 -- arithmetic operators - these are all
-add :: (Num a) => forall a . a -> a;
-add Cpp :: "double" -> "double";
+add :: (Num a) => forall a . a -> a -> a;
+add Cpp :: double -> double -> double;
 
-sub :: (Num a) => forall a . a -> a;
-sub Cpp :: "double" -> "double";
+sub :: (Num a) => forall a . a -> a -> a;
+sub Cpp :: double -> double -> double;
 
-mul :: (Num a) => forall a . a -> a;
-mul Cpp :: "double" -> "double";
+mul :: (Num a) => forall a . a -> a -> a;
+mul Cpp :: double -> double -> double;
 
-div :: (Num a) => forall a . a -> a;
-div Cpp :: "double" -> "double";
+div :: (Num a) => forall a . a -> a -> a;
+div Cpp :: double -> double -> double;
 
-mod :: (Num a) => forall a . a -> a;
-mod Cpp :: "double" -> "double";
+mod :: (Num a) => forall a . a -> a -> a;
+mod Cpp :: double -> double -> double;
 
 
 sum :: (Num a) => forall a . [a] -> a;
-sum Cpp :: forall a . "std::vector<$1>" double -> "double";
+sum Cpp :: forall a . "std::vector<$1>" a -> a;
 
 mean :: (Num a) => forall a . [a] -> a;
 mean Cpp :: forall a . "std::vector<$1>" a -> a;
