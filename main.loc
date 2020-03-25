@@ -57,49 +57,56 @@ source Cpp from "cpp_math.hpp" (
   , "mean"
   , "var"
   , "fibonacci"
-  -- C functions
-  , "acos"
-  , "asin"
-  , "atan"
-  , "atan2"
-  , "ceil"
-  , "cos"
-  , "cosh"
-  , "exp"
-  , "fabs"
-  , "floor"
-  , "fmod"
+  -- mangled C functions
+  , "morloc_acos" as acos
+  , "morloc_asin" as asin
+  , "morloc_atan" as atan
+  , "morloc_atan2" as atan2
+  , "morloc_ceil" as ceil
+  , "morloc_cos" as cos
+  , "morloc_cosh" as cosh
+  , "morloc_exp" as exp
+  , "morloc_fabs" as fabs
+  , "morloc_floor" as floor
+  , "morloc_fmod" as fmod
   -- , "frexp"
-  , "ldexp"
-  , "log"
-  , "log10"
+  , "morloc_ldexp" as ldexp 
+  , "morloc_log" as log
+  , "morloc_log10" as log10
   -- , "modf"
-  , "pow"
-  , "sin"
-  , "sinh"
-  , "sqrt"
-  , "tan"
-  , "tanh"
+  , "morloc_pow" as pow
+  , "morloc_sin" as sin
+  , "morloc_sinh" as sinh
+  , "morloc_sqrt" as sqrt
+  , "morloc_tan" as tan
+  , "morloc_tanh" as tanh
 );
 
 -- arithmetic operators - these are all
-add :: (Num a) => forall a . a -> a -> a;
+-- add :: (Num a) => forall a . a -> a -> a;
+add :: Num -> Num -> Num;
 add Cpp :: double -> double -> double;
 
-sub :: (Num a) => forall a . a -> a -> a;
+-- sub :: (Num a) => forall a . a -> a -> a;
+sub :: Num -> Num -> Num;
 sub Cpp :: double -> double -> double;
 
-mul :: (Num a) => forall a . a -> a -> a;
+-- mul :: (Num a) => forall a . a -> a -> a;
+mul :: Num -> Num -> Num;
 mul Cpp :: double -> double -> double;
 
-div :: (Num a) => forall a . a -> a -> a;
+-- div :: (Num a) => forall a . a -> a -> a;
+div :: Num -> Num -> Num;
 div Cpp :: double -> double -> double;
 
-mod :: (Num a) => forall a . a -> a -> a;
+-- mod :: (Num a) => forall a . a -> a -> a;
+div :: Num -> Num -> Num;
 mod Cpp :: double -> double -> double;
 
 
-sum :: (Num a) => forall a . [a] -> a;
+-- sum :: (Num a) => forall a . [a] -> a;
+sum :: [Num] -> Num;
+-- sum Cpp :: forall a . "std::vector<$1>" a -> a;
 sum Cpp :: forall a . "std::vector<$1>" a -> a;
 
 mean :: (Num a) => forall a . [a] -> a;
