@@ -5,13 +5,6 @@
 #include <vector>
 
 
-// basic arithmetic
-#define add(x,y) x + y
-#define sub(x,y) x - y
-#define mul(x,y) x * y
-#define div(x,y) x / y
-#define mod(x,y) x % y
-
 std::vector<double> fibonacci(size_t);
 
 template <class A>

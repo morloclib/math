@@ -1,5 +1,7 @@
 module math {
 
+import cppbase;
+
 export acos
 export add
 export asin
@@ -33,8 +35,6 @@ export tan
 export tanh
 export var
 
-import cppbase;
-
 source Cpp from "gsl.h" (
     "gsl_sf_bessel_J0" as bessel
 );
@@ -43,14 +43,8 @@ bessel :: Num -> Num;
 bessel Cpp :: "double" -> "double";
 
 source Cpp from "cpp_math.hpp" (
-  -- arithmetic
-    "add"
-  , "sub"
-  , "mul"
-  , "div"
-  , "mod"
   -- C++11
-  , "cbrt"
+    "cbrt"
   , "round"
   -- custom functions
   , "sum"
@@ -81,27 +75,6 @@ source Cpp from "cpp_math.hpp" (
   , "morloc_tan" as tan
   , "morloc_tanh" as tanh
 );
-
--- arithmetic operators - these are all
--- add :: (Num a) => forall a . a -> a -> a;
-add :: Num -> Num -> Num;
-add Cpp :: double -> double -> double;
-
--- sub :: (Num a) => forall a . a -> a -> a;
-sub :: Num -> Num -> Num;
-sub Cpp :: double -> double -> double;
-
--- mul :: (Num a) => forall a . a -> a -> a;
-mul :: Num -> Num -> Num;
-mul Cpp :: double -> double -> double;
-
--- div :: (Num a) => forall a . a -> a -> a;
-div :: Num -> Num -> Num;
-div Cpp :: double -> double -> double;
-
--- mod :: (Num a) => forall a . a -> a -> a;
-div :: Num -> Num -> Num;
-mod Cpp :: double -> double -> double;
 
 
 -- sum :: (Num a) => forall a . [a] -> a;
