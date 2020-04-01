@@ -49,64 +49,64 @@ std::vector<double> fibonacci(size_t n){
 }
 
 double morloc_acos(double x){
-    return std::acos(x);
+    return acos(x);
 }
 double morloc_asin(double x){
-    return std::asin(x);
+    return asin(x);
 }
 double morloc_atan(double x){
-    return std::atan(x);
+    return atan(x);
 }
 double morloc_atan2(double x, double y){
-    return std::atan2(x, y);
+    return atan2(x, y);
 }
 double morloc_ceil(double x){
-    return std::ceil(x);
+    return ceil(x);
 }
 double morloc_cos(double x){
-    return std::cos(x);
+    return cos(x);
 }
 double morloc_cosh(double x){
-    return std::cosh(x);
+    return cosh(x);
 }
 double morloc_exp(double x){
-    return std::exp(x);
+    return exp(x);
 }
 double morloc_fabs(double x){
-    return std::fabs(x);
+    return fabs(x);
 }
 double morloc_floor(double x){
-    return std::floor(x);
+    return floor(x);
 }
 double morloc_fmod(double x, double y){
-    return std::fmod(x, y);
+    return fmod(x, y);
 }
 double morloc_pow(double x, double y){
-    return std::pow(x, y);
+    return pow(x, y);
 }
 double morloc_ldexp(double x, int y){
-    return std::ldexp(x, y);
+    return ldexp(x, y);
 }
 double morloc_log(double x){
-    return std::log(x);
+    return log(x);
 }
 double morloc_log10(double x){
-    return std::log10(x);
+    return log10(x);
 }
 double morloc_sin(double x){
-    return std::sin(x);
+    return sin(x);
 }
 double morloc_sinh(double x){
-    return std::sinh(x);
+    return sinh(x);
 }
 double morloc_sqrt(double x){
-    return std::sqrt(x);
+    return sqrt(x);
 }
 double morloc_tan(double x){
-    return std::tan(x);
+    return tan(x);
 }
 double morloc_tanh(double x){
-    return std::tanh(x);
+    return tanh(x);
 }
 
 #endif
