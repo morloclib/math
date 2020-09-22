@@ -2,8 +2,13 @@ module math {
 
 import cppbase;
 
-export acos
+-- re-export terms from cppbase
 export add
+export sub
+export mul
+export div
+
+export acos
 export asin
 export atan
 export atan2
@@ -12,7 +17,6 @@ export cbrt
 export ceil
 export cos
 export cosh
-export div
 export exp
 export fabs
 export fibonacci
@@ -23,13 +27,11 @@ export log
 export log10
 export mean
 export mod
-export mul
 export pow
 export round
 export sin
 export sinh
 export sqrt
-export sub
 export sum
 export tan
 export tanh
