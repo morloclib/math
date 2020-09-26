@@ -79,19 +79,19 @@ source Cpp from "cpp_math.hpp" (
 );
 
 
--- sum :: (Num a) => forall a . [a] -> a;
+-- sum :: (Num a) => [a] -> a;
 sum :: [Num] -> Num;
--- sum Cpp :: forall a . "std::vector<$1>" a -> a;
-sum Cpp :: forall a . "std::vector<$1>" a -> a;
+-- sum Cpp :: "std::vector<$1>" a -> a;
+sum Cpp :: "std::vector<$1>" a -> a;
 
-mean :: (Num a) => forall a . [a] -> a;
-mean Cpp :: forall a . "std::vector<$1>" a -> a;
+mean :: (Num a) => [a] -> a;
+mean Cpp :: "std::vector<$1>" a -> a;
 
-var :: (Num a) => forall a . [a] -> a;
-var Cpp :: forall a . "std::vector<$1>" a -> a;
+var :: (Num a) => [a] -> a;
+var Cpp :: "std::vector<$1>" a -> a;
 
 fibonacci :: Num -> [Num];
-fibonacci Cpp :: "size_t" -> "std::vector<$1>" double;
+fibonacci Cpp :: "size_t" -> "std::vector<$1>" "double";
 
 -- cubic root
 cbrt :: Num -> Num;
