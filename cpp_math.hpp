@@ -5,7 +5,7 @@
 #include <vector>
 
 
-std::vector<double> fibonacci(size_t);
+std::vector<size_t> fibonacci(size_t);
 
 template <class A>
 A sum(std::vector<A> xs){
@@ -31,8 +31,8 @@ A var(std::vector<A> xs){
     return(diff / (xs.size() - 1));
 }
 
-std::vector<double> fibonacci(size_t n){
-    std::vector<double> xs;
+std::vector<size_t> fibonacci(size_t n){
+    std::vector<size_t> xs;
     if(n <= 0){
        return xs; 
     }

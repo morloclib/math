@@ -90,8 +90,8 @@ mean Cpp :: "std::vector<$1>" a -> a;
 var :: (Num a) => [a] -> a;
 var Cpp :: "std::vector<$1>" a -> a;
 
-fibonacci :: Num -> [Num];
-fibonacci Cpp :: "size_t" -> "std::vector<$1>" "double";
+fibonacci :: Int -> [Int];
+fibonacci Cpp :: "size_t" -> "std::vector<$1>" "size_t";
 
 -- cubic root
 cbrt :: Num -> Num;
