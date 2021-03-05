@@ -37,14 +37,13 @@ export tan
 export tanh
 export var
 
-source Cpp from "gsl.h" (
-    "gsl_sf_bessel_J0" as bessel
-)
+source Cpp from "gsl.h" ("gsl_sf_bessel_J0" as bessel)
 
 bessel :: Num -> Num
 bessel Cpp :: "double" -> "double"
 
-source Cpp from "cpp_math.hpp" (
+source Cpp from "cpp_math.hpp"
+  (
   -- C++11
     "cbrt"
   , "round"
@@ -76,7 +75,7 @@ source Cpp from "cpp_math.hpp" (
   , "morloc_sqrt" as sqrt
   , "morloc_tan" as tan
   , "morloc_tanh" as tanh
-)
+  )
 
 
 -- sum :: (Num a) => [a] -> a
@@ -118,12 +117,18 @@ tan Cpp :: "double" -> "double"
 
 -- double acos(double x)
 -- Returns the arc cosine of x in radians.
-acos :: x:Num -> Num where { x >= -1 x <= 1 };
+acos :: x:Num -> Num
+    -- where
+    --     x >= -1
+    --     x <= 1
 acos Cpp :: "double" -> "double"
 
 -- double asin(double x)
 -- Returns the arc sine of x in radians.
-asin :: x:Num -> Num where { x >= -1 x <= 1 };
+asin :: x:Num -> Num
+    -- where
+    --     x >= -1
+    --     x <= 1
 asin Cpp :: "double" -> "double"
 
 -- double atan(double x)
