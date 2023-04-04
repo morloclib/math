@@ -1,41 +1,6 @@
-module math
+module math (*)
 
-import cppbase
-
--- re-export terms from cppbase
-export add
-export sub
-export mul
-export div
-
-export acos
-export asin
-export atan
-export atan2
-export bessel
-export cbrt
-export ceil
-export cos
-export cosh
-export exp
-export fabs
-export fibonacci
-export floor
-export fmod
-export ldexp
-export log
-export log10
-export mean
-export mod
-export pow
-export round
-export sin
-export sinh
-export sqrt
-export sum
-export tan
-export tanh
-export var
+import cppbase (add, sub, mul, div)
 
 source Cpp from "gsl.h" ("gsl_sf_bessel_J0" as bessel)
 
