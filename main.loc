@@ -4,8 +4,11 @@ import cppbase (add, sub, mul, div)
 
 source Cpp from "gsl.h" ("gsl_sf_bessel_J0" as bessel)
 
+type Cpp => Real = "double"
+type Cpp => Int = "int"
+type Cpp => (List a) = "std::vector<$1>" a
+
 bessel :: Real -> Real
-bessel Cpp :: "double" -> "double"
 
 source Cpp from "cpp_math.hpp"
   (
@@ -45,40 +48,30 @@ source Cpp from "cpp_math.hpp"
 
 -- sum :: (Real a) => [a] -> a
 sum :: [Real] -> Real
--- sum Cpp :: "std::vector<$1>" a -> a
-sum Cpp :: "std::vector<$1>" a -> a
 
 mean :: (Real a) => [a] -> a
-mean Cpp :: "std::vector<$1>" a -> a
 
 var :: (Real a) => [a] -> a
-var Cpp :: "std::vector<$1>" a -> a
 
 fibonacci :: Int -> [Int]
-fibonacci Cpp :: "size_t" -> "std::vector<$1>" "size_t"
 
 -- cubic root
 cbrt :: Real -> Real
-cbrt Cpp :: "double" -> "double"
 
 -- round to nearest integer
 round :: Real -> Real
-round Cpp :: "double" -> "double"
 
 -- double sin(double x)
 -- Returns the sine of a radian angle x.
 sin :: Real -> Real
-sin Cpp :: "double" -> "double"
 
 -- double cos(double x)
 -- Returns the cosine of a radian angle x.
 cos :: Real -> Real
-cos Cpp :: "double" -> "double"
 
 -- double tan(double x)
 -- Returns the cosine of a radian angle x.
 tan :: Real -> Real
-tan Cpp :: "double" -> "double"
 
 -- double acos(double x)
 -- Returns the arc cosine of x in radians.
@@ -86,7 +79,6 @@ acos :: x:Real -> Real
     -- where
     --     x >= -1
     --     x <= 1
-acos Cpp :: "double" -> "double"
 
 -- double asin(double x)
 -- Returns the arc sine of x in radians.
@@ -94,80 +86,64 @@ asin :: x:Real -> Real
     -- where
     --     x >= -1
     --     x <= 1
-asin Cpp :: "double" -> "double"
 
 -- double atan(double x)
 -- Returns the arc tangent of x in radians.
 atan :: Real -> Real
-atan Cpp :: "double" -> "double"
 
 -- double atan2(double y, double x)
 -- Returns the arc tangent in radians of y/x based on the signs of both values
 -- to determine the correct quadrant.
 atan2 :: Real -> Real -> Real
-atan2 Cpp :: "double" -> "double" -> "double"
 
 -- double cosh(double x)
 -- Returns the hyperbolic cosine of x.
 cosh :: Real -> Real
-cosh Cpp :: "double" -> "double"
 
 -- double sinh(double x)
 -- Returns the hyperbolic sine of x.
 sinh :: Real -> Real
-sinh Cpp :: "double" -> "double"
 
 -- double tanh(double x)
 -- Returns the hyperbolic tangent of x.
 tanh :: Real -> Real
-tanh Cpp :: "double" -> "double"
 
 -- double exp(double x)
 -- Returns the value of e raised to the xth power.
 exp :: Real -> Real
-exp Cpp :: "double" -> "double"
 
 -- double ldexp(double x, int exponent)
 -- Returns x multiplied by 2 raised to the power of exponent.
 ldexp :: Real -> Int -> Real
-ldexp Cpp :: "double" -> "int" -> "double"
 
 -- double log(double x)
 -- Returns the natural logarithm (base-e logarithm) of x.
 log :: Real -> Real
-log Cpp :: "double" -> "double"
 
 -- double log10(double x)
 -- Returns the common logarithm (base-10 logarithm) of x.
 log10 :: Real -> Real
-log10 Cpp :: "double" -> "double"
 
 -- double pow(double x, double y)
 -- Returns x raised to the power of y.
 pow :: Real -> Real -> Real
-pow Cpp :: "double" -> "double" -> "double"
 
 -- double sqrt(double x)
 -- Returns the square root of x.
 sqrt :: Real -> Real
-sqrt Cpp :: "double" -> "double"
 
 -- double ceil(double x)
 -- Returns the smallest integer value greater than or equal to x.
 ceil :: Real -> Real
-ceil Cpp :: "double" -> "double"
 
 -- double fabs(double x)
 -- Returns the absolute value of x.
 fabs :: Real -> Real
-fabs Cpp :: "double" -> "double"
 
 -- double floor(double x)
 -- Returns the largest integer value less than or equal to x.
 floor :: Real -> Real
-floor Cpp :: "double" -> "double"
 
 -- Returns the remainder of x divided by y.
 -- C: double fmod(double x, double y)
 fmod :: Real -> Real -> Real
-fmod Cpp :: "double" -> "double" -> "double"
