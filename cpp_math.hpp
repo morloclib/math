@@ -4,8 +4,7 @@
 #include <math.h>
 #include <vector>
 
-
-std::vector<size_t> fibonacci(size_t);
+std::vector<int> fibonacci(int);
 
 template <class A>
 A sum(std::vector<A> xs){
@@ -31,8 +30,8 @@ A var(std::vector<A> xs){
     return(diff / (xs.size() - 1));
 }
 
-std::vector<size_t> fibonacci(size_t n){
-    std::vector<size_t> xs;
+std::vector<int> fibonacci(int n){
+    std::vector<int> xs;
     if(n <= 0){
        return xs; 
     }
