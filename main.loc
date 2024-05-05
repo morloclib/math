@@ -49,9 +49,9 @@ source Cpp from "cpp_math.hpp"
 -- sum :: (Real a) => [a] -> a
 sum :: [Real] -> Real
 
-mean :: (Real a) => [a] -> a
+mean a :: (Real a) => [a] -> a
 
-var :: (Real a) => [a] -> a
+var a :: (Real a) => [a] -> a
 
 fibonacci :: Int -> [Int]
 
