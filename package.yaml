@@ -1,14 +1,14 @@
 name: math
 version: 0.0.0
-homepage: https://github.com/morloc-lib/math
+homepage: https://github.com/morloclib/math
 synopsis: Basic math functions
 description: See README
 category: math
 license: MIT
 author: "Zebulun Arendsee"
-maintainer: "zbwrnz@gmail.com"
-github: https://github.com/morloc-lib/math
-bug-reports: https://github.com/morloc-lib/math
+maintainer: "z@morloc.com"
+github: https://github.com/morloclib/math
+bug-reports: https://github.com/morloclib/math
 dependencies:
   - "m"
   - "gsl"
