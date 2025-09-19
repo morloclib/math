@@ -1,12 +1,8 @@
 module math (*)
 
-import cppbase (add, sub, mul, div)
+import root
 
 source Cpp from "gsl.h" ("gsl_sf_bessel_J0" as bessel)
-
-type Cpp => Real = "double"
-type Cpp => Int = "int"
-type Cpp => (List a) = "std::vector<$1>" a
 
 bessel :: Real -> Real
 
@@ -16,7 +12,6 @@ source Cpp from "cpp_math.hpp"
     "cbrt"
   , "round"
   -- custom functions
-  , "sum"
   , "mean"
   , "var"
   , "fibonacci"
@@ -45,9 +40,6 @@ source Cpp from "cpp_math.hpp"
   , "morloc_tanh" as tanh
   )
 
-
--- sum :: (Real a) => [a] -> a
-sum :: [Real] -> Real
 
 mean a :: (Real a) => [a] -> a
 
