@@ -23,13 +23,11 @@ source Cpp from "cpp_math.hpp"
   , "morloc_ceil" as ceil
   , "morloc_cos" as cos
   , "morloc_cosh" as cosh
-  , "morloc_exp" as exp
   , "morloc_fabs" as fabs
   , "morloc_floor" as floor
   , "morloc_fmod" as fmod
   -- , "frexp"
   , "morloc_ldexp" as ldexp 
-  , "morloc_log" as log
   , "morloc_log10" as log10
   -- , "modf"
   , "morloc_pow" as pow
@@ -40,10 +38,11 @@ source Cpp from "cpp_math.hpp"
   , "morloc_tanh" as tanh
   )
 
+sum a :: [Real] -> Real
 
-mean a :: (Real a) => [a] -> a
+mean a :: [a] -> a
 
-var a :: (Real a) => [a] -> a
+var a :: [a] -> a
 
 fibonacci :: Int -> [Int]
 
@@ -100,17 +99,9 @@ sinh :: Real -> Real
 -- Returns the hyperbolic tangent of x.
 tanh :: Real -> Real
 
--- double exp(double x)
--- Returns the value of e raised to the xth power.
-exp :: Real -> Real
-
 -- double ldexp(double x, int exponent)
 -- Returns x multiplied by 2 raised to the power of exponent.
 ldexp :: Real -> Int -> Real
-
--- double log(double x)
--- Returns the natural logarithm (base-e logarithm) of x.
-log :: Real -> Real
 
 -- double log10(double x)
 -- Returns the common logarithm (base-10 logarithm) of x.

@@ -68,9 +68,6 @@ double morloc_cos(double x){
 double morloc_cosh(double x){
     return cosh(x);
 }
-double morloc_exp(double x){
-    return exp(x);
-}
 double morloc_fabs(double x){
     return fabs(x);
 }
@@ -85,9 +82,6 @@ double morloc_pow(double x, double y){
 }
 double morloc_ldexp(double x, int y){
     return ldexp(x, y);
-}
-double morloc_log(double x){
-    return log(x);
 }
 double morloc_log10(double x){
     return log10(x);
