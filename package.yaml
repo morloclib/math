@@ -1,19 +1,15 @@
 name: math
-version: 0.0.0
+version: 0.1.0
 homepage: https://github.com/morloclib/math
-synopsis: Basic math functions
-description: See README
+synopsis: Fundamental mathematical functions
+description: >
+  Type-signature-only module providing fundamental mathematical building blocks:
+  trigonometric, hyperbolic, exponential, logarithmic, rounding, and sign
+  functions with Numeric typeclass constraints. Language-specific implementations
+  are provided by companion modules (e.g., math-cpp, math-py).
 category: math
 license: MIT
 author: "Zebulun Arendsee"
 maintainer: "z@morloc.com"
 github: https://github.com/morloclib/math
 bug-reports: https://github.com/morloclib/math
-dependencies:
-  - "m"
-  - "gsl"
-  - "gslcblas"
-
-# -Wall -lm -lgsl -lcblas
-# # cblas is a faster library, but gslcblas comes with gsl, so it more likely to
-# # be installed. I need a system for specifying alternative sets of flags.

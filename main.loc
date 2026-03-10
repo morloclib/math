@@ -2,131 +2,46 @@ module math (*)
 
 import root
 
-source Cpp from "gsl.h" ("gsl_sf_bessel_J0" as bessel)
+-- Constants
 
-bessel :: Real -> Real
+pi a :: Numeric a => a
+e a :: Numeric a => a
 
-source Cpp from "cpp_math.hpp"
-  (
-  -- C++11
-    "cbrt"
-  , "round"
-  -- custom functions
-  , "mean"
-  , "var"
-  , "fibonacci"
-  -- mangled C functions
-  , "morloc_acos" as acos
-  , "morloc_asin" as asin
-  , "morloc_atan" as atan
-  , "morloc_atan2" as atan2
-  , "morloc_ceil" as ceil
-  , "morloc_cos" as cos
-  , "morloc_cosh" as cosh
-  , "morloc_fabs" as fabs
-  , "morloc_floor" as floor
-  , "morloc_fmod" as fmod
-  -- , "frexp"
-  , "morloc_ldexp" as ldexp 
-  , "morloc_log10" as log10
-  -- , "modf"
-  , "morloc_pow" as pow
-  , "morloc_sin" as sin
-  , "morloc_sinh" as sinh
-  , "morloc_sqrt" as sqrt
-  , "morloc_tan" as tan
-  , "morloc_tanh" as tanh
-  )
+-- Trigonometric
 
-sum a :: [Real] -> Real
+sin a :: Numeric a => a -> a
+cos a :: Numeric a => a -> a
+tan a :: Numeric a => a -> a
+asin a :: Numeric a => a -> a
+acos a :: Numeric a => a -> a
+atan a :: Numeric a => a -> a
+atan2 a :: Numeric a => a -> a -> a
 
-mean a :: [a] -> a
+-- Hyperbolic
 
-var a :: [a] -> a
+sinh a :: Numeric a => a -> a
+cosh a :: Numeric a => a -> a
+tanh a :: Numeric a => a -> a
+asinh a :: Numeric a => a -> a
+acosh a :: Numeric a => a -> a
+atanh a :: Numeric a => a -> a
 
-fibonacci :: Int -> [Int]
+-- Exponential and logarithmic
 
--- cubic root
-cbrt :: Real -> Real
+exp a :: Numeric a => a -> a
+log2 a :: Numeric a => a -> a
+log10 a :: Numeric a => a -> a
 
--- round to nearest integer
-round :: Real -> Real
+-- Roots
 
--- double sin(double x)
--- Returns the sine of a radian angle x.
-sin :: Real -> Real
+sqrt a :: Numeric a => a -> a
 
--- double cos(double x)
--- Returns the cosine of a radian angle x.
-cos :: Real -> Real
+-- Rounding
 
--- double tan(double x)
--- Returns the cosine of a radian angle x.
-tan :: Real -> Real
+round a :: Numeric a => a -> a
+ceil a :: Numeric a => a -> a
+floor a :: Numeric a => a -> a
 
--- double acos(double x)
--- Returns the arc cosine of x in radians.
-acos :: x:Real -> Real
-    -- where
-    --     x >= -1
-    --     x <= 1
+-- Sign
 
--- double asin(double x)
--- Returns the arc sine of x in radians.
-asin :: x:Real -> Real
-    -- where
-    --     x >= -1
-    --     x <= 1
-
--- double atan(double x)
--- Returns the arc tangent of x in radians.
-atan :: Real -> Real
-
--- double atan2(double y, double x)
--- Returns the arc tangent in radians of y/x based on the signs of both values
--- to determine the correct quadrant.
-atan2 :: Real -> Real -> Real
-
--- double cosh(double x)
--- Returns the hyperbolic cosine of x.
-cosh :: Real -> Real
-
--- double sinh(double x)
--- Returns the hyperbolic sine of x.
-sinh :: Real -> Real
-
--- double tanh(double x)
--- Returns the hyperbolic tangent of x.
-tanh :: Real -> Real
-
--- double ldexp(double x, int exponent)
--- Returns x multiplied by 2 raised to the power of exponent.
-ldexp :: Real -> Int -> Real
-
--- double log10(double x)
--- Returns the common logarithm (base-10 logarithm) of x.
-log10 :: Real -> Real
-
--- double pow(double x, double y)
--- Returns x raised to the power of y.
-pow :: Real -> Real -> Real
-
--- double sqrt(double x)
--- Returns the square root of x.
-sqrt :: Real -> Real
-
--- double ceil(double x)
--- Returns the smallest integer value greater than or equal to x.
-ceil :: Real -> Real
-
--- double fabs(double x)
--- Returns the absolute value of x.
-fabs :: Real -> Real
-
--- double floor(double x)
--- Returns the largest integer value less than or equal to x.
-floor :: Real -> Real
-
--- Returns the remainder of x divided by y.
--- C: double fmod(double x, double y)
-fmod :: Real -> Real -> Real
+sign a :: Numeric a => a -> a
