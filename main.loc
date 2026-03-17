@@ -4,44 +4,44 @@ import root
 
 -- Constants
 
-pi a :: Numeric a => a
-e a :: Numeric a => a
+pi :: Numeric a => a
+e :: Numeric a => a
 
 -- Trigonometric
 
-sin a :: Numeric a => a -> a
-cos a :: Numeric a => a -> a
-tan a :: Numeric a => a -> a
-asin a :: Numeric a => a -> a
-acos a :: Numeric a => a -> a
-atan a :: Numeric a => a -> a
-atan2 a :: Numeric a => a -> a -> a
+sin :: Numeric a => a -> a
+cos :: Numeric a => a -> a
+tan :: Numeric a => a -> a
+asin :: Numeric a => a -> a
+acos :: Numeric a => a -> a
+atan :: Numeric a => a -> a
+atan2 :: Numeric a => a -> a -> a
 
 -- Hyperbolic
 
-sinh a :: Numeric a => a -> a
-cosh a :: Numeric a => a -> a
-tanh a :: Numeric a => a -> a
-asinh a :: Numeric a => a -> a
-acosh a :: Numeric a => a -> a
-atanh a :: Numeric a => a -> a
+sinh :: Numeric a => a -> a
+cosh :: Numeric a => a -> a
+tanh :: Numeric a => a -> a
+asinh :: Numeric a => a -> a
+acosh :: Numeric a => a -> a
+atanh :: Numeric a => a -> a
 
 -- Exponential and logarithmic
 
-exp a :: Numeric a => a -> a
-log2 a :: Numeric a => a -> a
-log10 a :: Numeric a => a -> a
+exp :: Numeric a => a -> a
+log2 :: Numeric a => a -> a
+log10 :: Numeric a => a -> a
 
 -- Roots
 
-sqrt a :: Numeric a => a -> a
+sqrt :: Numeric a => a -> a
 
 -- Rounding
 
-round a :: Numeric a => a -> a
-ceil a :: Numeric a => a -> a
-floor a :: Numeric a => a -> a
+round :: Numeric a => a -> a
+ceil :: Numeric a => a -> a
+floor :: Numeric a => a -> a
 
 -- Sign
 
-sign a :: Numeric a => a -> a
+sign :: Numeric a => a -> a
