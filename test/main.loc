@@ -1,0 +1,170 @@
+module math.test (test)
+
+import math
+import root
+
+type Py => Int = "int"
+type Py => Str = "str"
+type Py => Real = "float"
+type Py => Bool = "bool"
+type Py => Tuple2 a b = "tuple" a b
+type Py => List a = "list" a
+
+-------------------------------------------------------------------------------
+-- Test suite functions
+
+source Py from "math-test.py" ("testEqual", "testNear", "printMsg", "printResult")
+testEqual
+    :: Str -> a -> a -> (Int, Int) -> (Int, Int)
+testNear
+    :: Str -> Real -> Real -> (Int, Int) -> (Int, Int)
+printMsg :: Str -> a -> a
+printResult :: (Int, Int) -> (Int, Int)
+
+testGroup
+    :: Str
+    -> ((Int, Int) -> (Int, Int))
+    -> (Int, Int)
+    -> (Int, Int)
+testGroup msg tests = tests . printMsg msg
+
+passed :: (Int, Int) -> Bool
+passed t = 0 == (.0 t)
+
+test = runTests (0,0)
+
+-------------------------------------------------------------------------------
+-- Test suite
+
+runTests :: (Int, Int) -> Bool
+runTests =
+  ( passed
+  . printResult
+  . testGroup "Sign" testSign
+  . testGroup "Rounding" testRounding
+  . testGroup "Roots" testRoots
+  . testGroup "Exp/Log" testExpLog
+  . testGroup "Hyperbolic" testHyperbolic
+  . testGroup "Trig" testTrig
+  . testGroup "Constants" testConstants
+  )
+
+-------------------------------------------------------------------------------
+-- Constants
+
+testConstants :: (Int, Int) -> (Int, Int)
+testConstants =
+  ( testNear "pi" (pi :: Real) 3.141592653589793
+  . testNear "e" (e :: Real) 2.718281828459045
+  )
+
+-------------------------------------------------------------------------------
+-- Trigonometric
+
+testTrig :: (Int, Int) -> (Int, Int)
+testTrig =
+  ( testNear "sin 0" (sin 0.0) 0.0
+  . testNear "sin pi/2" (sin (pi / 2.0)) 1.0
+  . testNear "sin pi" (sin (pi :: Real)) 0.0
+  . testNear "cos 0" (cos 0.0) 1.0
+  . testNear "cos pi/2" (cos (pi / 2.0)) 0.0
+  . testNear "cos pi" (cos (pi :: Real)) (0.0 - 1.0)
+  . testNear "tan 0" (tan 0.0) 0.0
+  . testNear "tan pi/4" (tan (pi / 4.0)) 1.0
+  . testNear "asin 0" (asin 0.0) 0.0
+  . testNear "asin 1" (asin 1.0) (pi / 2.0)
+  . testNear "acos 1" (acos 1.0) 0.0
+  . testNear "acos 0" (acos 0.0) (pi / 2.0)
+  . testNear "atan 0" (atan 0.0) 0.0
+  . testNear "atan 1" (atan 1.0) (pi / 4.0)
+  . testNear "atan2 1 1" (atan2 1.0 1.0) (pi / 4.0)
+  . testNear "atan2 1 0" (atan2 1.0 0.0) (pi / 2.0)
+  . testNear "atan2 0 1" (atan2 0.0 1.0) 0.0
+  . testNear "atan2 -1 0" (atan2 (0.0 - 1.0) 0.0) (0.0 - pi / 2.0)
+  -- sin^2 + cos^2 = 1
+  . testNear "pythag 0.5" (sin 0.5 ** 2.0 + cos 0.5 ** 2.0) 1.0
+  . testNear "pythag 1.0" (sin 1.0 ** 2.0 + cos 1.0 ** 2.0) 1.0
+  )
+
+-------------------------------------------------------------------------------
+-- Hyperbolic
+
+testHyperbolic :: (Int, Int) -> (Int, Int)
+testHyperbolic =
+  ( testNear "sinh 0" (sinh 0.0) 0.0
+  . testNear "cosh 0" (cosh 0.0) 1.0
+  . testNear "tanh 0" (tanh 0.0) 0.0
+  . testNear "sinh 1" (sinh 1.0) 1.1752011936438014
+  . testNear "cosh 1" (cosh 1.0) 1.5430806348152437
+  . testNear "tanh 1" (tanh 1.0) 0.7615941559557649
+  . testNear "asinh 0" (asinh 0.0) 0.0
+  . testNear "acosh 1" (acosh 1.0) 0.0
+  . testNear "atanh 0" (atanh 0.0) 0.0
+  -- asinh(sinh(x)) = x
+  . testNear "asinh-sinh" (asinh (sinh 1.5)) 1.5
+  -- acosh(cosh(x)) = x for x >= 0
+  . testNear "acosh-cosh" (acosh (cosh 2.0)) 2.0
+  -- atanh(tanh(x)) = x
+  . testNear "atanh-tanh" (atanh (tanh 0.5)) 0.5
+  )
+
+-------------------------------------------------------------------------------
+-- Exponential and logarithmic
+
+testExpLog :: (Int, Int) -> (Int, Int)
+testExpLog =
+  ( testNear "exp 0" (exp 0.0) 1.0
+  . testNear "exp 1" (exp 1.0) (e :: Real)
+  . testNear "exp 2" (exp 2.0) 7.38905609893065
+  . testNear "log2 1" (log2 1.0) 0.0
+  . testNear "log2 2" (log2 2.0) 1.0
+  . testNear "log2 8" (log2 8.0) 3.0
+  . testNear "log10 1" (log10 1.0) 0.0
+  . testNear "log10 10" (log10 10.0) 1.0
+  . testNear "log10 100" (log10 100.0) 2.0
+  -- exp(ln(x)) = x
+  . testNear "exp-ln" (exp (ln 5.0)) 5.0
+  -- ln(exp(x)) = x
+  . testNear "ln-exp" (ln (exp 3.0)) 3.0
+  )
+
+-------------------------------------------------------------------------------
+-- Roots
+
+testRoots :: (Int, Int) -> (Int, Int)
+testRoots =
+  ( testNear "sqrt 0" (sqrt 0.0) 0.0
+  . testNear "sqrt 1" (sqrt 1.0) 1.0
+  . testNear "sqrt 4" (sqrt 4.0) 2.0
+  . testNear "sqrt 9" (sqrt 9.0) 3.0
+  . testNear "sqrt 2" (sqrt 2.0) 1.4142135623730951
+  -- sqrt(x)^2 = x
+  . testNear "sqrt-sq" (sqrt 7.0 ** 2.0) 7.0
+  )
+
+-------------------------------------------------------------------------------
+-- Rounding
+
+testRounding :: (Int, Int) -> (Int, Int)
+testRounding =
+  ( testNear "round 2.3" (round 2.3) 2.0
+  . testNear "round 2.7" (round 2.7) 3.0
+  . testNear "round -2.3" (round (0.0 - 2.3)) (0.0 - 2.0)
+  . testNear "round -2.7" (round (0.0 - 2.7)) (0.0 - 3.0)
+  . testNear "ceil 2.1" (ceil 2.1) 3.0
+  . testNear "ceil 2.0" (ceil 2.0) 2.0
+  . testNear "ceil -2.1" (ceil (0.0 - 2.1)) (0.0 - 2.0)
+  . testNear "floor 2.9" (floor 2.9) 2.0
+  . testNear "floor 2.0" (floor 2.0) 2.0
+  . testNear "floor -2.1" (floor (0.0 - 2.1)) (0.0 - 3.0)
+  )
+
+-------------------------------------------------------------------------------
+-- Sign
+
+testSign :: (Int, Int) -> (Int, Int)
+testSign =
+  ( testNear "sign 5" (sign 5.0) 1.0
+  . testNear "sign -5" (sign (0.0 - 5.0)) (0.0 - 1.0)
+  . testNear "sign 0" (sign 0.0) 0.0
+  )
